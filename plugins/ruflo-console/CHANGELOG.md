@@ -2,6 +2,9 @@
 
 Newest first. One `## <version> — <date>` heading per version, then `feat:`, `fix:`, `breaking:` and `chore:` bullets (ADR-478). Built from git history; older versions: `git log -- plugins/ruflo-console`.
 
+## 0.43.6 — 2026-10-12
+- feat: an external plugin the ruflo marketplace lists by a git source (the first is `agentic-qe-fleet`, Agentic QE) shows in the Plugin Catalog with an EXT badge and where it is installed from; its skills, agents, commands, MCP config and mod are read from its install path in `installed_plugins.json`, since the ruflo clone holds none. Its commands launch from Dev Tools, and the plugin-coverage test now also requires a section for every external marketplace entry
+
 ## 0.43.5 — 2026-10-12
 - fix: the Skills page runs a pinned skills CLI (`skills@1.7.2`, like the AI page's pinned Codex) instead of whatever npm `latest` is: `npx -y skills` fetched and ran the newest release on every visit to the page (it lists on open) and on every add, remove, update, init and use, with the person's permissions. The hints name the pin from one constant. The pin fixes the top-level package only: its own dependencies (tar, yaml) are npm ranges resolved on the first fetch, and the first run needs the network. 1.7.2 is published by vercel-labs/skills with no install-time scripts (#4113, thanks @martinvlad)
 
